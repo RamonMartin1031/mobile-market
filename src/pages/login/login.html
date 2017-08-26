@@ -1,0 +1,32 @@
+
+<ion-header>
+
+</ion-header>
+
+
+<ion-content>
+  <form [formGroup]="loginForm">
+  <ion-list nolines>
+      <ion-item>
+        <ion-label>Username</ion-label>
+        <ion-input formControlName="username" type="text"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="loginForm.controls.username.errors?.required  && (loginForm.controls.username.dirty || isSubmit)">
+          <p> Username is required.</p>
+      </ion-item>
+      <ion-item>
+        <ion-label>Password</ion-label>
+        <ion-input formControlName="password" type="password"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="loginForm.controls.password.errors?.required  && (loginForm.controls.password.dirty || isSubmit)">
+          <p> Password is required.</p>
+      </ion-item>
+    
+  </ion-list>
+    
+    <div padding>
+      <button ion-button block (click)="submit()">Sign In</button>
+      <button ion-button color="danger" (click)="toSignUp()" block>Sign Up</button>
+    </div>
+  </form>  
+</ion-content>

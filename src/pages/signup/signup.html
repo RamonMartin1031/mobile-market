@@ -1,0 +1,76 @@
+<!--
+  Generated template for the SignupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>signup</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <form [formGroup]="signUpForm">
+        <ion-list >
+          <ion-item>
+            <ion-input type="text" formControlName="username" placeholder="Username"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="signUpForm.controls.username.errors?.required  && (signUpForm.controls.username.dirty || formSubmit)">
+            <p class="error">Username is required</p>
+          </ion-item>
+          <ion-item *ngIf="signUpForm.controls.username.pending">
+            <p>Checking if username is available...</p>
+          </ion-item>
+          <ion-item *ngIf="!signUpForm.controls.username.valid && !signUpForm.controls.username.errors?.required && !signUpForm.controls.username.pending  && (signUpForm.controls.username.dirty)">
+            <p class="error">Username is taken</p>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" formControlName="firstname" placeholder="First name"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="!signUpForm.controls.firstname.valid  && (signUpForm.controls.firstname.dirty || formSubmit)">
+            <p class="error">First name is required.</p>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" formControlName="lastname" placeholder="Last name"></ion-input>
+          </ion-item>
+    
+          <ion-item *ngIf="!signUpForm.controls.lastname.valid  && (signUpForm.controls.lastname.dirty || formSubmit)">
+            <p class="error">Last name is required.</p>
+          </ion-item>
+          <ion-item>
+              <ion-input type="email" formControlName="email" placeholder="Email"></ion-input>
+          </ion-item>
+      
+          <ion-item *ngIf="!signUpForm.controls.email.valid  && (signUpForm.controls.email.dirty || formSubmit)">
+            <p class="error">A valid Email is required.</p>
+          </ion-item>
+          <ion-item>
+              <ion-input type="tel" formControlName="phonenumber" placeholder="Phone Number"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="!signUpForm.controls.phonenumber.valid  && (signUpForm.controls.phonenumber.dirty || formSubmit)">
+              <p class="error">A valid 10 digit phone number is required.</p>
+            </ion-item>
+          <ion-item>
+            <ion-input type="password" formControlName="password" placeholder="Password"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="!signUpForm.controls.password.valid  && (signUpForm.controls.password.dirty || formSubmit)">
+            <p class="error">Password must be 8 letters or more</p>
+          </ion-item>
+          <ion-item>
+            <ion-input type="password" formControlName="confirmPassword" placeholder="Confirm Password"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="!signUpForm.controls.confirmPassword.valid  && (signUpForm.controls.confirmPassword.dirty || formSubmit)">
+            <p class="error">Passwords do not match.</p>
+          </ion-item>
+        </ion-list>
+    
+        <div padding>
+          <button ion-button color="success" full (tap)="submit()" icon-left>
+              <ion-icon name="logo-in" ></ion-icon>Create 
+          </button>
+        </div>
+      </form>
+</ion-content>
